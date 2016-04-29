@@ -1,0 +1,115 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	1). universal
+	2). navbar
+	3). posts
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* ------ universal ------- */
+
+	html{
+		font:16px;
+	}
+
+	ul {
+		padding-left: 0;
+	}
+
+	li {
+		list-style: none;
+	}
+
+	.ng-cloak {
+		display: none;
+	}
+
+	.green {
+		color: green;
+	}
+
+	.red {
+		color: red;
+	}
+
+
+/* ------- navbar -------- */
+
+
+
+/* ------- posts -------- */
+
+	.post-frame {
+		background: lightgrey;
+		border: 1px solid grey;
+		border-radius: 0.5rem;
+		display: flex;
+		
+		margin: 0 auto;
+		margin-bottom: 1.5rem;
+		overflow: scroll;
+		/*position: relative;*/
+		width: 100%;
+	}
+
+	/* --- post image --- */
+		.post-frame img {
+			height: 150px;
+			margin: 25px auto;
+		}
+
+	/* --- post body/content --- */
+		.post-frame .content {
+			margin: 15px auto;
+			height: 150px;
+		}
+
+		.post-frame ul.title-section li {
+			display: inline-block;
+			padding-right: 0.5rem;
+			padding-left: 0.5rem;
+		}
+
+		.post-frame ul.title-section li:first-child {
+			padding-left: 0;
+		}
+
+		.post-frame ul.title-section li:nth-child(2) {
+			border-left: 1px solid black;
+		}
+
+		/* -- post comment section -- */
+			.post-frame ul.comment-section li {
+				border-right: 1px solid black;
+				display: inline-block;
+				padding-right: 1rem;
+				padding-left: 1rem;
+			}
+
+			.post-frame ul.comment-section li:last-child {
+				border-right: none;
+				padding-right: 0;
+			}
+
+			.post-frame ul.comment-section li:first-child {
+				padding-left: 0;
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

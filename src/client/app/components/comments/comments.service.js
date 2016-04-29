@@ -1,0 +1,4 @@
+app.service('commentsService', [ function(){
+
+}]);
+
