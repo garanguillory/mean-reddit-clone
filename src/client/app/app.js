@@ -1,4 +1,4 @@
-var app = angular.module('MeanRedditClone',['ngRoute', 'auth0']);
+var app = angular.module('MeanRedditClone',['ngRoute']);
 
 
 
