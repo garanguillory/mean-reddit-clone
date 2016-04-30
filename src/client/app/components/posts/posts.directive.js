@@ -3,7 +3,10 @@ app.directive("posts",['postsService', 'redditService', function(postsService, r
 		return {
 			restrict: 'AE',
 			templateUrl: "app/components/posts/posts.view.html",
-			controller: function($scope){
+			controller: function($scope, auth, store){
+
+				$scope.auth = auth;
+
 
 				postsService.getAllPosts()
 					.then(function(posts){

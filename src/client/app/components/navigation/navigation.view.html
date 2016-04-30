@@ -33,9 +33,12 @@
 		          </ul>
 		        </li>
 		      </ul>
+
 					<ul class="nav navbar-nav navbar-right">
+						<li><a href=""><span><img ng-src="{{auth.profile.picture}}"> {{auth.profile.nickname}}</span></a></li>
 						<li><a ng-href="/register">Register</a></li>
-						<li><a ng-href="/login">Login</a></li>
+						<li><a ng-click="auth.signin()">Login</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
 					</ul>
 
 		    </div><!-- /.navbar-collapse -->

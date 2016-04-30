@@ -3,7 +3,9 @@ app.directive("navigation",['navigationService',function(navigationService){
 		return {
 			restrict: 'AE',
 			templateUrl: "app/components/navigation/navigation.view.html",
-			controller: function($scope){
+			controller: function($scope, auth, store){
+
+				$scope.auth = auth;
 
 				$scope.toggle = function(){
 					navigationService.toggle(newPost);
@@ -15,6 +17,13 @@ app.directive("navigation",['navigationService',function(navigationService){
 				  $scope.reverse = ($scope.orderOption === string) ? !$scope.reverse : false;
 				  $scope.orderOption = string;
 				};
+
+
+				$scope.logout = function() {
+				  auth.signout();
+				  store.remove('profile');
+				  store.remove('token');
+				}
 				
 			}
 		};
