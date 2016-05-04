@@ -7,6 +7,8 @@ app.directive("navigation",['navigationService',function(navigationService){
 
 				$scope.auth = auth;
 
+				console.log($scope.auth.profile)
+
 				$scope.toggle = function(){
 					navigationService.toggle(newPost);
 				};

@@ -16,22 +16,18 @@ var runSequence = require('run-sequence');
 
 
 /**
- * Config
- */
+ Config
+ **/
+
+// had to change paths object
+// removed the array brackets
+// surrounding the './src/client/css/*.css' for each key
 
 var paths = {
-  styles: [
-    './src/client/css/*.css',
-  ],
-  scripts: [
-    './src/client/js/*.js',
-  ],
-  server: [
-    './src/server/bin/www'
-  ],
-  distServer: [
-    './dist/server/bin/www'
-  ]
+  styles: './src/client/css/*.css',
+  scripts: './src/client/js/*.js',
+  server: './src/server/bin/www',
+  distServer: './dist/server/bin/www'
 };
 
 var nodemonConfig = {
