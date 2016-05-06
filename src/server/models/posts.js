@@ -13,6 +13,10 @@ var PostSchema = new Schema({
     type: String,
     required: true,
   },
+  user_id: {
+    type: String,
+    required: true,
+  },
   image_url: {
     type: String,
     required: true,
@@ -29,10 +33,16 @@ var PostSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  comments: {
-    type: Array,
-    default: []
-  },
+  // comments: {
+  //   type: Array,
+  //   default: []
+  // }, 
+  // add Date field to individual comment 
+  comments: [{
+      author: {type: String},
+      text: {type: String},
+      user_id: {type: String}
+    }],
   showComments: {
     type: Boolean,
     default: false,

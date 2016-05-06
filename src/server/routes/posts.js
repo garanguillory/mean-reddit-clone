@@ -22,10 +22,10 @@ router.get('/', function (req, res, next) {
 
 // ADD NEW post
 router.post('/', function (req, res, next) {
-	var post = new Posts(req.body);
+  var post = new Posts(req.body);
   post.save()
   .then(function(post) {
-  	console.log(post);
+    console.log(post);
     res.status(200).json({
       status: 'success',
       data: post
@@ -53,7 +53,26 @@ router.put('/:id/comment', function (req, res, next) {
   });
 });
 
-// Update a post's vote count
+
+// DELETE a comment from a post (by id)
+router.put('/:id/comment/:userid/delete', function (req, res, next) {
+  var post_id = req.params.id; // variables necessary?
+  var user_id = req.params.userid; // variables necessary?
+  Posts.findByIdAndUpdate(req.params.id, {$pull: {comments: {"user_id": req.params.userid}}}, {new:true})
+  .then(function(post) {
+    console.log(post);
+    res.status(200).json({
+      status: 'success',
+      data: post
+    });
+  })
+  .catch(function (err) {
+    return next(err);
+  });
+});
+
+
+// Update a post's vote count (upvote)
 router.put('/:id/upvote', function (req, res, next) {
   var post_id = req.params.id;
   console.log('upvote');
@@ -71,6 +90,7 @@ router.put('/:id/upvote', function (req, res, next) {
 });
 
 
+// Update a post's vote count (downvote)
 router.put('/:id/downvote', function (req, res, next) {
   var post_id = req.params.id;
   console.log('downvote');
@@ -86,6 +106,24 @@ router.put('/:id/downvote', function (req, res, next) {
     return next(err);
   });
 });
+
+
+// DELETE a post
+router.delete('/:id', function (req, res, next) {
+  var post_id = req.params.id; // necessary ???
+  Posts.findByIdAndRemove(req.params.id)
+  .then(function(post) {
+    console.log(post);
+    res.status(200).json({
+      status: 'success',
+      data: post
+    });
+  })
+  .catch(function (err) {
+    return next(err);
+  });
+});
+
 
 module.exports = router;
 

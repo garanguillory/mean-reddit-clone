@@ -80,23 +80,25 @@
 
 		/* -- post comment section -- */
 			.post-frame ul.comment-section li {
-				border-right: 1px solid black;
+				border-left: 1px solid black;
 				display: inline-block;
 				padding-right: 1rem;
 				padding-left: 1rem;
 			}
 
-			.post-frame ul.comment-section li:last-child {
-				border-right: none;
-				padding-right: 0;
-			}
-
 			.post-frame ul.comment-section li:first-child {
+				border-left: none;
 				padding-left: 0;
 			}
 
+			.post-frame ul.comment-section li:last-child {
+				padding-right: 0;
+			}
 
-
+	/* -- individual comment -- */
+		.individual-comment li{
+			display: inline-block;
+		}
 
 
 

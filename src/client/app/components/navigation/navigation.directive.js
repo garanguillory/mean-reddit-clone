@@ -3,15 +3,12 @@ app.directive("navigation",['navigationService',function(navigationService){
 		return {
 			restrict: 'AE',
 			templateUrl: "app/components/navigation/navigation.view.html",
-			controller: function($scope, auth, store){
+			controller: function($scope, $window, auth, store){
 
 				$scope.auth = auth;
 
-				console.log($scope.auth.profile)
-
-				$scope.toggle = function(){
-					navigationService.toggle(newPost);
-				};
+				// console.log($scope.auth.profile)
+				// console.log(auth.profile)
 
 				$scope.hideNewPost = true;
 
@@ -25,6 +22,7 @@ app.directive("navigation",['navigationService',function(navigationService){
 				  auth.signout();
 				  store.remove('profile');
 				  store.remove('token');
+				  $window.location.reload();
 				}
 				
 			}

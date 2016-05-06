@@ -10,7 +10,7 @@ app.config(function (authProvider, $routeProvider, $httpProvider, jwtInterceptor
   });
 
 
-  authProvider.on('loginSuccess', function($location, profilePromise, idToken, store) {
+  authProvider.on('loginSuccess', function($location, $window, profilePromise, idToken, store) {
     console.log("Login Success");
     profilePromise.then(function(profile) {
       store.set('profile', profile);

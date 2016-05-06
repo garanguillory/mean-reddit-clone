@@ -1,7 +1,5 @@
 <div class="container">
 	<div class="row">
-		<!-- <h6>auth: {{auth}}</h6> -->
-		<!-- <h6>auth.profile {{auth.profile}}</h6> -->
 		<div class="post-frame" ng-repeat="post in posts | filter:search | orderBy:orderOption:reverse  ">
 
 			<img class="col-sm-3" ng-src="{{post.image_url}}" alt="{{post.title}}">
@@ -19,8 +17,8 @@
 				<ul class="comment-section">
 					<li> <i class="fa fa-calendar"></i> {{post.date | date:medium}} </li>
 					<li ng-click="showComments ? showComments = false : showComments = true"> <i class="fa fa-comment"></i> <span ng-hide="post.comments.length < 1">{{post.comments.length}}</span> <ng-pluralize count="post.comments.length" when="{'0': 'be the first to comment', '1': 'comment', 'other': 'comments'}"></ng-pluralize></li>
-					<li ng-click="hideNewComment ? hideNewComment = false : hideNewComment = true"> <i class="fa fa-pencil"></i> add a comment </li>
-				</ul>
+					<li ng-show="auth.isAuthenticated" ng-click="hideNewComment ? hideNewComment = false : hideNewComment = true"> <i class="fa fa-pencil"></i> add a comment </li>
+				</ul>	
 
 				<form name="newCommentForm" ng-hide="hideNewComment" ng-submit="addComment()" class="form-inline" novalidate>
 				  <div class="form-group">
@@ -34,12 +32,17 @@
 				  <button type="submit" class="btn btn-default" ng-click="hideNewComment = true">Add Comment</button>
 				  <button type="button" class="btn btn-default" ng-click="hideNewComment = true">Cancel</button>
 				</form>
-					<ul ng-show="showComments" ng-repeat="comment in post.comments">
+					<ul class="individual-comment" ng-show="showComments" ng-repeat="comment in post.comments">
 						<hr>
 						<li>{{comment.author}} - {{comment.text}}</li>
+						<li class="pull-right" ng-show="comment.user_id == auth.profile.user_id">
+							<input ng-click="deleteComment()" class="btn btn-danger btn-xs" type="submit" value="Delete Comment">
+						</li>
 					</ul>
+
+					<input ng-show="post.user_id == auth.profile.user_id" ng-click="deletePost()" class="btn btn-danger btn-xs pull-right" type="submit" value="Delete Post">
 			</div>
-			
+
 		</div>
 	</div>
 </div>
