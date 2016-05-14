@@ -10,6 +10,3 @@ app.config(['$routeProvider', function($routeProvider) {
         redirectTo: '/'
       });
 }]);
-
-
-// need to add authProvider here???

@@ -3,6 +3,7 @@ app.directive("newpost",['newpostService', function(newpostService){
 		return {
 			restrict: 'AE',
 			templateUrl: "app/components/newpost/newpost.view.html",
+			// require: 'navigation',
 			controller: function(auth, $scope, $window){
 
 				$scope.auth = auth;
