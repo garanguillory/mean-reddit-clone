@@ -27,7 +27,7 @@ var environment = process.env.NODE_ENV || 'development';
 if (!process.env.NODE_ENV) {
     var mongoURI = config.mongoURI[environment];
 } else {
-  var mongoURI = process.env.MONGODB_URI;
+  var mongoURI = process.env.MONGOLAB_URI; //process.env.MONGODB_URI;
 }
 
 
