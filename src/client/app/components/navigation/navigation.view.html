@@ -36,8 +36,7 @@
 
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href=""><span>{{auth.profile.nickname}}</span></a></li>
-						<li ng-hide="auth.isAuthenticated"><a ng-href="/register">Register</a></li>
-						<li ng-hide="auth.isAuthenticated"><a ng-click="auth.signin()">Login</a></li>
+						<li ng-hide="auth.isAuthenticated"><a ng-click="auth.signin()">Register - Login</a></li>
 						<li ng-hide="!auth.isAuthenticated"><a ng-click="logout()">Logout</a></li>
 					</ul>
 
